@@ -1,0 +1,11 @@
+Craete an application to order food
+we have restaurants -> menus
+
+restaurants service
+-> add restaurants
+-> edit restaurantdetails
+
+we are usng MYSQL database
+create table in mysql
+
+we have vendors and customers
