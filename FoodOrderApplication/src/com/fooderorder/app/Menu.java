@@ -8,6 +8,8 @@ public class Menu {
 
    private double itemPrice; //(double -- in db we have varchar)
 
+   private int restId;
+
     public int getItemId() {
         return itemId;
     }
@@ -30,5 +32,13 @@ public class Menu {
 
     public void setItemPrice(double itemPrice) {
         this.itemPrice = itemPrice;
+    }
+
+    public int getRestId() {
+        return restId;
+    }
+
+    public void setRestId(int restId) {
+        this.restId = restId;
     }
 }
