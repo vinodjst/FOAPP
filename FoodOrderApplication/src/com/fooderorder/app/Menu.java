@@ -41,4 +41,14 @@ public class Menu {
     public void setRestId(int restId) {
         this.restId = restId;
     }
+
+    @Override
+    public String toString() {
+        return "Menu{" +
+                "itemId=" + itemId +
+                ", itemName='" + itemName + '\'' +
+                ", itemPrice=" + itemPrice +
+                ", restId=" + restId +
+                '}';
+    }
 }

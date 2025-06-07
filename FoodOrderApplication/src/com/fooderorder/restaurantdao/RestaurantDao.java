@@ -12,6 +12,7 @@ public class RestaurantDao {
      * uses to add restaurants
      * void no return expected
      * Restaurant as parameter
+     *
      * */
     public int saveRestaurant(Restaurant restaurant) throws SQLException {
 
@@ -74,7 +75,28 @@ public class RestaurantDao {
 
     }
 
-    public void updateRestaurant(){
+    public boolean fetchRestaurantById(int restId) throws SQLException {
+
+        Connection connection = DbConnection.getDbConnection();
+        String sql ="Select * from restaurant where rest_id=?";
+        try {
+            PreparedStatement preparedStatement = connection.prepareStatement(sql);
+            preparedStatement.setInt(1,restId);
+
+            ResultSet resultSet = preparedStatement.executeQuery();
+
+            if(resultSet.next()){
+                System.out.println("RestId found " + resultSet.getInt(1)+" : RestaurantName : "+resultSet.getString(2));
+                return true;
+            }
+
+        } catch (SQLException e) {
+            System.out.println("Error while adding Menu,Please try again later.");
+            throw new RuntimeException(e);
+        }finally {
+            connection.close();
+        }
+      return false;
 
     }
 

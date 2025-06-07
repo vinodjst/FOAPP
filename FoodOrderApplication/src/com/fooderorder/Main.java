@@ -20,6 +20,7 @@ public class Main {
         switch (option){
             case 1 -> {
                 System.out.println("Your are Vendor");
+                //restaurantService.addMenuByRestaurant();
                 restaurantService.addRestaurant();
             }
 
