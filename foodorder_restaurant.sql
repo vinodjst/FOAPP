@@ -28,7 +28,7 @@ CREATE TABLE `restaurant` (
   `rest_address` varchar(100) DEFAULT NULL,
   `rest_type` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`rest_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -37,7 +37,6 @@ CREATE TABLE `restaurant` (
 
 LOCK TABLES `restaurant` WRITE;
 /*!40000 ALTER TABLE `restaurant` DISABLE KEYS */;
-INSERT INTO `restaurant` VALUES (1,'DOMINOS','area1','veg/non-veg'),(2,'pizzahut','area51','non-veg'),(3,'kamat','area33','veg');
 /*!40000 ALTER TABLE `restaurant` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -50,4 +49,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2025-06-05  8:10:39
+-- Dump completed on 2025-06-06  8:49:06
