@@ -19,12 +19,18 @@ public class Main {
 
         switch (option){
             case 1 -> {
-                System.out.println("Your are Vendor");
-                //restaurantService.addMenuByRestaurant();
-                restaurantService.addRestaurant();
+                System.out.println("Your are Vendor 1.Add restaurant 2.Add menu");
+                System.out.println("Enter your choice 1 or 2 :");
+                int choose = scanner.nextInt();
+                if(choose == 1){
+                    restaurantService.addRestaurant();
+                }else {
+                    restaurantService.addMenuByRestaurant();
+                }
+
             }
 
-            case 2-> System.out.println("You are Customer");
+            case 2-> System.out.println("You are Customer"); //view all restaurants  -->allow customer to choose one -> fetch all menu items form menu table based on the rest id
             default -> System.out.println("Invalid option");
         }
 

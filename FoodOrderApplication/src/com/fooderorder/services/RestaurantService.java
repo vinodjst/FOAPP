@@ -87,6 +87,10 @@ public class RestaurantService {
             boolean check = restaurantDao.fetchRestaurantById(id);
             if (check){
                 System.out.println("Restaurant available you can continue with adding menus");
+                List<Menu> menuList = addMenuItems(id);
+                for (Menu menu : menuList) {
+                    restaurantDao.saveMenu(menu);
+                }
             }else {
                 System.out.println("No data found with this id , pleas provide valid id");
             }
