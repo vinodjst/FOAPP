@@ -44,4 +44,15 @@ public class Restaurant {
     public void setRestType(String restType) {
         this.restType = restType;
     }
+
+
+    @Override
+    public String toString() {
+        return "Restaurant{" +
+                "restId=" + restId +
+                ", restName='" + restName + '\'' +
+                ", restAddress='" + restAddress + '\'' +
+                ", restType='" + restType + '\'' +
+                '}';
+    }
 }

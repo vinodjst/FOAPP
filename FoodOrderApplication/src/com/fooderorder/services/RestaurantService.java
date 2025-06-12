@@ -106,6 +106,37 @@ public class RestaurantService {
 
     }
 
+    public List<Restaurant> getAllRestaurants()  {
+
+        List<Restaurant> restaurants = null;
+        try {
+            restaurants = restaurantDao.fetchAllRestaurants();
+
+            for (Restaurant restaurant : restaurants) {
+                System.out.printf("%s | %s | %s | %s |\n",restaurant.getRestId(),restaurant.getRestName(),restaurant.getRestAddress(),restaurant.getRestType());
+            }
+        } catch (SQLException e) {
+            System.out.println("Error while fetching restaurants");
+            throw new RuntimeException(e);
+        }
+
+        System.out.println(restaurants);
+
+        return restaurants;
+    }
 
 
+    public void fetchAllMenusByRestaurantId(int restId) {
+
+        try {
+            List<Menu> menus = restaurantDao.fetchAllMenusByRestaurantId(restId);
+            System.out.println("Menus fetched successfully...");
+            for (Menu menu : menus) {
+                System.out.printf("%s | %s | %s |\n",menu.getItemId(),menu.getItemName(),menu.getItemPrice());
+            }
+        } catch (SQLException e) {
+            System.out.println("restId = " + restId+" is not available");
+            throw new RuntimeException(e);
+        }
+    }
 }

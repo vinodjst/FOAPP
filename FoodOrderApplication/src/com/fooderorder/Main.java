@@ -30,7 +30,14 @@ public class Main {
 
             }
 
-            case 2-> System.out.println("You are Customer"); //view all restaurants  -->allow customer to choose one -> fetch all menu items form menu table based on the rest id
+            case 2-> {
+                System.out.println("You are Customer");
+                restaurantService.getAllRestaurants();
+                System.out.println("Please enter your restaurant id");
+                int restId = scanner.nextInt();
+                restaurantService.fetchAllMenusByRestaurantId(restId);
+
+            }
             default -> System.out.println("Invalid option");
         }
 

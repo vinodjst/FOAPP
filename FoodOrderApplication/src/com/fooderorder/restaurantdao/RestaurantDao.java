@@ -5,6 +5,8 @@ import com.fooderorder.app.Restaurant;
 import com.fooderorder.config.DbConnection;
 
 import java.sql.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class RestaurantDao {
 
@@ -100,4 +102,67 @@ public class RestaurantDao {
 
     }
 
-}
+
+        // ... existing methods ...
+
+        public List<Restaurant> fetchAllRestaurants() throws SQLException {
+            List<Restaurant> restaurantList = new ArrayList<>();
+            Connection connection = DbConnection.getDbConnection();
+            String sql = "SELECT * FROM restaurant";
+
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+                    Restaurant restaurant = new Restaurant();
+                    restaurant.setRestId(resultSet.getInt("rest_id"));
+                    restaurant.setRestName(resultSet.getString("rest_name"));
+                    restaurant.setRestAddress(resultSet.getString("rest_address"));
+                    restaurant.setRestType(resultSet.getString("rest_type"));
+
+                    restaurantList.add(restaurant);
+                }
+
+            } catch (SQLException e) {
+                System.out.println("Error while fetching restaurants.");
+                throw new RuntimeException(e);
+            } finally {
+                connection.close();
+            }
+
+            return restaurantList;
+        }
+
+        public List<Menu> fetchAllMenusByRestaurantId(int restId) throws SQLException {
+            List<Menu> menuList = new ArrayList<>();
+            Connection connection = DbConnection.getDbConnection();
+            String sql = "SELECT * FROM menu WHERE rest_id = ?";
+
+            try {
+                PreparedStatement preparedStatement = connection.prepareStatement(sql);
+                preparedStatement.setInt(1, restId);
+                ResultSet resultSet = preparedStatement.executeQuery();
+
+                while (resultSet.next()) {
+                    Menu menu = new Menu();
+                    menu.setItemId(resultSet.getInt("item_id"));
+                    menu.setItemName(resultSet.getString("item_name"));
+                    menu.setItemPrice(resultSet.getDouble("item_price"));
+                    menu.setRestId(resultSet.getInt("rest_id"));
+
+                    menuList.add(menu);
+                }
+
+            } catch (SQLException e) {
+                System.out.println("Error while fetching menu items.");
+                throw new RuntimeException(e);
+            } finally {
+                connection.close();
+            }
+
+            return menuList;
+        }
+    }
+
+
