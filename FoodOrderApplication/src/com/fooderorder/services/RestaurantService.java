@@ -99,9 +99,6 @@ public class RestaurantService {
             throw new RuntimeException(e);
         }
 
-        //validate
-        //check in the db if there entered value is available or not
-        //if yes we can continue OW we need throw error invalid Id or id not found
 
 
     }

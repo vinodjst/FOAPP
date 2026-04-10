@@ -48,7 +48,7 @@ public class Menu {
                 "itemId=" + itemId +
                 ", itemName='" + itemName + '\'' +
                 ", itemPrice=" + itemPrice +
-                ", restId=" + restId +
+                ", restaurantId=" + restId +
                 '}';
     }
 }
