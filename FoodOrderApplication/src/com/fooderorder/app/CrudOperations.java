@@ -10,9 +10,6 @@ import java.util.Arrays;
 public class CrudOperations {
 
 
-    //save/update/delete/fetch
-
-    //save some random data
     public void save() throws SQLException {
 
         Connection connection = DbConnection.getDbConnection();
